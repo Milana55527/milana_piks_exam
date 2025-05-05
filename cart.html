@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyBliss | Корзина</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-pink-600">BeautyBliss</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="font-medium hover:text-pink-600 transition-colors">Главная</a>
+                <a href="products.html" class="font-medium hover:text-pink-600 transition-colors">Продукты</a>
+                <a href="signup.html" class="font-medium hover:text-pink-600 transition-colors">Регистрация</a>
+                <a href="cart.html" class="font-medium text-pink-600">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="ml-1">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8">Корзина</h1>
+        
+        <div id="cart-empty" class="hidden text-center py-12">
+            <i class="fas fa-shopping-cart text-4xl text-gray-400 mb-4"></i>
+            <p class="text-gray-500">Ваша корзина пуста</p>
+            <a href="products.html" class="inline-block mt-4 px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700">
+                Перейти к покупкам
+            </a>
+        </div>
+
+        <div id="cart-content" class="grid gap-8 lg:grid-cols-3">
+            <div class="lg:col-span-2">
+                <div id="cart-items" class="space-y-4">
+                    <!-- Cart items will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl p-6 shadow-lg sticky top-24">
+                    <h2 class="text-xl font-bold mb-4">Итого</h2>
+                    <div class="flex justify-between mb-4">
+                        <span>Сумма</span>
+                        <span id="cart-total" class="font-bold">0 ₽</span>
+                    </div>
+                    <button id="checkout-btn" class="w-full py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors mb-3">
+                        Оформить заказ
+                    </button>
+                    <button id="clear-cart-btn" class="w-full py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Очистить корзину
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-4 py-8 text-center">
+            <p>&copy; 2023 BeautyBliss. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300">
+        Товар добавлен в корзину
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+        document.getElementById('clear-cart-btn').addEventListener('click', () => {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        });
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Заказ оформлен!');
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>

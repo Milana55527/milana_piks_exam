@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyBliss | Продукты</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-pink-600">BeautyBliss</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html" class="font-medium hover:text-pink-600 transition-colors">Главная</a>
+                <a href="products.html" class="font-medium hover:text-pink-600 transition-colors">Продукты</a>
+                <a href="signup.html" class="font-medium hover:text-pink-600 transition-colors">Регистрация</a>
+                <a href="cart.html" class="font-medium hover:text-pink-600 transition-colors">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="ml-1">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="products" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 animate-fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Наши <span class="text-pink-600">Продукты</span></h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Исследуйте нашу коллекцию премиальной косметики
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Card 1 -->
+                    <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-fade-in delay-100">
+                        <a href="moisturizing-cream.html" class="block">
+                            <div class="relative overflow-hidden">
+                                <img src="photo/moisturizing-cream.webp" 
+                                     alt="Увлажняющий крем" 
+                                     class="product-image w-full h-64 object-cover">
+                                <div class="absolute top-4 right-4">
+                                    <button class="favorite-btn p-2 bg-white/90 rounded-full shadow-md hover:bg-pink-100 transition-colors">
+                                        <i class="far fa-heart text-gray-700"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-gray-900">Увлажняющий крем</h3>
+                                    <span class="text-xs px-2 py-1 bg-pink-100 text-pink-800 rounded-full">NEW</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">Интенсивное увлажнение для всех типов кожи</p>
+                                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                                    <span>50 мл</span>
+                                    <span class="font-bold text-pink-600">2990 ₽</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="px-6 pb-6">
+                            <button onclick="addToCart({
+                                name: 'Увлажняющий крем',
+                                price: 2990,
+                                image: 'photo/moisturizing-cream.webp'
+                            })" class="w-full py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition-colors">
+                                Добавить в корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 2 -->
+                    <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-fade-in delay-200">
+                        <a href="anti-aging-serum.html" class="block">
+                            <div class="relative overflow-hidden">
+                                <img src="photo/anti-aging-serum.jpg" 
+                                     alt="Сыворотка" 
+                                     class="product-image w-full h-64 object-cover">
+                                <div class="absolute top-4 right-4">
+                                    <button class="favorite-btn p-2 bg-white/90 rounded-full shadow-md hover:bg-pink-100 transition-colors">
+                                        <i class="far fa-heart text-gray-700"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-gray-900">Антивозрастная сыворотка</h3>
+                                    <span class="text-xs px-2 py-1 bg-pink-100 text-pink-800 rounded-full">Бестселлер</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">С гиалуроновой кислотой и витамином С</p>
+                                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                                    <span>30 мл</span>
+                                    <span class="font-bold text-pink-600">3490 ₽</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="px-6 pb-6">
+                            <button onclick="addToCart({
+                                name: 'Антивозрастная сыворотка',
+                                price: 3490,
+                                image: 'photo/anti-aging-serum.jpg'
+                            })" class="w-full py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition-colors">
+                                Добавить в корзину
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 3 -->
+                    <div class="product-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow animate-fade-in delay-300">
+                        <a href="cleansing-mask.html" class="block">
+                            <div class="relative overflow-hidden">
+                                <img src="photo/cleansing-mask.jpg" 
+                                     alt="Маска" 
+                                     class="product-image w-full h-64 object-cover">
+                                <div class="absolute top-4 right-4">
+                                    <button class="favorite-btn p-2 bg-white/90 rounded-full shadow-md hover:bg-pink-100 transition-colors">
+                                        <i class="far fa-heart text-gray-700"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-xl font-bold text-gray-900">Очищающая маска</h3>
+                                    <span class="text-xs px-2 py-1 bg-green-100 text-green-800 rounded-full">-20%</span>
+                                </div>
+                                <p class="text-gray-600 mb-4">С глиной и экстрактом зеленого чая</p>
+                                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                                    <span>100 мл</span>
+                                    <span class="font-bold text-pink-600">1990 ₽</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="px-6 pb-6">
+                            <button onclick="addToCart({
+                                name: 'Очищающая маска',
+                                price: 1990,
+                                image: 'photo/cleansing-mask.jpg'
+                            })" class="w-full py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition-colors">
+                                Добавить в корзину
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-4 py-8 text-center">
+            <p>&copy; 2023 BeautyBliss. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    function addToCart(product) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart-count').textContent = cart.length;
+        
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg';
+        notification.textContent = 'Товар добавлен в корзину';
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    }
+    </script>
+    <script src="scripts.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
